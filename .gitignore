@@ -1,0 +1,3 @@
+# Design docs stay local: they name private repos and the strongtie org.
+# This repo is public, so nothing under docs/ may be pushed.
+docs/
