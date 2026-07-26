@@ -1,0 +1,56 @@
+name: Generate streak cards
+
+# Renders the streak card into the repo instead of hosting it. The upstream
+# project is PHP, and putting PHP on Vercel means depending on a community
+# runtime, so this sidesteps hosting entirely: the SVG is generated here and
+# served from the repo by GitHub's own CDN.
+
+on:
+  schedule:
+    # Twice daily. GitHub caches README images through its Camo proxy anyway,
+    # so anything more frequent would not show up faster.
+    - cron: "0 4,16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  streak:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Two themes so the README can serve each via <picture> and match the
+      # viewer's colour scheme. exclude_days stops weekends from breaking a
+      # streak; it does not change the contribution total.
+      - name: Generate dark card
+        uses: DenverCoder1/github-readme-streak-stats@v1.7.0
+        with:
+          options: user=vandervalkjoel&exclude_days=Sun,Sat&hide_border=true&theme=dark
+          path: profile/streak-dark.svg
+
+      - name: Generate light card
+        uses: DenverCoder1/github-readme-streak-stats@v1.7.0
+        with:
+          options: user=vandervalkjoel&exclude_days=Sun,Sat&hide_border=true&theme=default
+          path: profile/streak-light.svg
+
+      # Fail before committing. A card that reads zero is still valid SVG, so
+      # without this the workflow would happily publish a broken card.
+      - name: Verify the cards contain real numbers
+        run: bash scripts/verify-cards.sh
+
+      - name: Commit if changed
+        run: |
+          # Authored by the bot on purpose: commits from this workflow must not
+          # inflate the contribution stats the cards are reporting.
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/streak-dark.svg profile/streak-light.svg
+          if git diff --quiet --cached; then
+            echo "Cards unchanged, nothing to commit."
+          else
+            git commit -m "Update streak cards"
+            git push
+          fi
