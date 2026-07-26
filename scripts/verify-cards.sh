@@ -111,7 +111,7 @@ ERROR_PHRASES='Something went wrong|No GitHub API tokens|Please add an env varia
 # 1514 to "1.5k", which no numeric assertion can read. Keep this in sync with the
 # parameters the README actually requests.
 STATS_URL="https://readme-stats-sand-zeta.vercel.app/api?username=vandervalkjoel&number_format=long"
-LANGS_URL="https://readme-stats-sand-zeta.vercel.app/api/top-langs?username=vandervalkjoel"
+LANGS_URL="https://readme-stats-sand-zeta.vercel.app/api/top-langs?username=vandervalkjoel&exclude_repo=hyperos-ios"
 GRAPH_URL="https://readme-activity-graph-three.vercel.app/graph?username=vandervalkjoel"
 
 # Fetch a card and assert it is a real SVG carrying no embedded error message.
