@@ -107,7 +107,10 @@ check_svg_file() {
 # the status code alone is not enough.
 ERROR_PHRASES='Something went wrong|No GitHub API tokens|Please add an env variable|Can.t fetch any contribution|check your username|Maximum retries exceeded|Invalid username'
 
-STATS_URL="https://readme-stats-sand-zeta.vercel.app/api?username=vandervalkjoel"
+# number_format=long matters here, not just cosmetically: the default abbreviates
+# 1514 to "1.5k", which no numeric assertion can read. Keep this in sync with the
+# parameters the README actually requests.
+STATS_URL="https://readme-stats-sand-zeta.vercel.app/api?username=vandervalkjoel&number_format=long"
 LANGS_URL="https://readme-stats-sand-zeta.vercel.app/api/top-langs?username=vandervalkjoel"
 GRAPH_URL="https://readme-activity-graph-three.vercel.app/graph?username=vandervalkjoel"
 

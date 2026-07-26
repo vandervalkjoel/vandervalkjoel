@@ -22,8 +22,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-stats-sand-zeta.vercel.app/api?username=vandervalkjoel&show_icons=true&include_all_commits=true&hide_border=true&cache_seconds=21600&theme=github_dark">
-    <img height="170" alt="GitHub stats" src="https://readme-stats-sand-zeta.vercel.app/api?username=vandervalkjoel&show_icons=true&include_all_commits=true&hide_border=true&cache_seconds=21600&theme=default">
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-stats-sand-zeta.vercel.app/api?username=vandervalkjoel&show_icons=true&number_format=long&hide_border=true&cache_seconds=21600&theme=github_dark">
+    <img height="170" alt="GitHub stats" src="https://readme-stats-sand-zeta.vercel.app/api?username=vandervalkjoel&show_icons=true&number_format=long&hide_border=true&cache_seconds=21600&theme=default">
   </picture>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://readme-stats-sand-zeta.vercel.app/api/top-langs?username=vandervalkjoel&layout=compact&langs_count=8&hide_border=true&cache_seconds=21600&theme=github_dark">
