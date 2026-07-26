@@ -34,8 +34,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-activity-graph-three.vercel.app/graph?username=vandervalkjoel&theme=github-dark&hide_border=true&days=90&area=true">
-    <img alt="Contribution activity over the last 90 days" src="https://readme-activity-graph-three.vercel.app/graph?username=vandervalkjoel&theme=github-light&hide_border=true&days=90&area=true">
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-activity-graph-three.vercel.app/graph?username=vandervalkjoel&theme=github-dark&hide_border=true&days=90&area=true&smooth=7">
+    <img alt="Contribution activity over the last 90 days, as a 7 day rolling average" src="https://readme-activity-graph-three.vercel.app/graph?username=vandervalkjoel&theme=github-light&hide_border=true&days=90&area=true&smooth=7">
   </picture>
 </p>
 
