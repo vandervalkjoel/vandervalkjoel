@@ -10,6 +10,7 @@
 - Currently deep in Koiné, an app for gathering people together in real life
 - Happy to talk about SwiftUI, Postgres row level security, or wiring Claude Code into a project that actually ships
 - Most of what I build started as a problem I had that week
+- Day to day that means Swift and SwiftUI, C# on the work side, TypeScript, and a lot of Postgres. The language card below only counts repos I own, so the C# does not show up in it
 
 ### Stats
 
