@@ -39,7 +39,7 @@ jobs:
       # Fail before committing. A card that reads zero is still valid SVG, so
       # without this the workflow would happily publish a broken card.
       - name: Verify the cards contain real numbers
-        run: bash scripts/verify-cards.sh
+        run: bash scripts/verify-cards.sh local
 
       - name: Commit if changed
         run: |
