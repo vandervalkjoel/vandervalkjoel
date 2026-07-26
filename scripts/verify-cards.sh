@@ -36,8 +36,15 @@ pass() {
 
 # Largest integer appearing in any text node of an SVG. The all-time
 # contribution total is always the largest number these cards render.
+#
+# Newlines are flattened first, deliberately: this renderer puts each value on
+# its own line, so a line-oriented grep for ">number<" never matches.
 max_number() {
-    grep -oE '>[0-9][0-9,]*<' "$1" | tr -d '><,' | sort -n | tail -1
+    tr '\n' ' ' < "$1" |
+        grep -oE '>[[:space:]]*[0-9][0-9,]*[[:space:]]*<' |
+        tr -cd '0-9\n' |
+        sort -n |
+        tail -1
 }
 
 check_svg_file() {
@@ -54,10 +61,19 @@ check_svg_file() {
     fi
 
     local m
-    m=$(max_number "$f")
+    # "|| true" matters: without it, a no-match makes the pipeline fail under
+    # pipefail, which kills the script before it can report anything.
+    m=$(max_number "$f" || true)
 
     if [ -z "$m" ]; then
         fail "$f renders no numbers at all"
+        return
+    fi
+
+    # Proves exclude_days took effect. The renderer only draws this footnote
+    # when days are actually being excluded.
+    if ! tr '\n' ' ' < "$f" | grep -q 'Excluding Sun, Sat'; then
+        fail "$f is missing the weekend-exclusion footnote"
         return
     fi
 
