@@ -15,6 +15,12 @@ on:
 permissions:
   contents: write
 
+# Two runs committing the same two SVGs will race each other into a rejected
+# push. Queue them instead of cancelling, so a scheduled run is never dropped.
+concurrency:
+  group: streak-cards
+  cancel-in-progress: false
+
 jobs:
   streak:
     runs-on: ubuntu-latest
@@ -57,7 +63,26 @@ jobs:
           git add profile/streak-dark.svg profile/streak-light.svg
           if git diff --quiet --cached; then
             echo "Cards unchanged, nothing to commit."
-          else
-            git commit -m "Update streak cards"
-            git push
+            exit 0
           fi
+
+          git commit -m "Update streak cards"
+
+          # A push straight after commit is rejected whenever main moved while
+          # this job ran, which is easy to trigger by editing the repo at the
+          # same time. Rebase and retry rather than failing the run and leaving
+          # the cards stale.
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push rejected on attempt $attempt, rebasing onto origin/main."
+            git pull --rebase --autostash origin main || {
+              echo "Rebase failed, giving up rather than forcing." >&2
+              exit 1
+            }
+          done
+
+          echo "Could not push after 3 attempts." >&2
+          exit 1
