@@ -108,10 +108,10 @@ check_svg_file() {
 ERROR_PHRASES='Something went wrong|No GitHub API tokens|Please add an env variable|Can.t fetch any contribution|check your username|Maximum retries exceeded|Invalid username'
 
 LANGS_URL="https://readme-stats-sand-zeta.vercel.app/api/top-langs?username=vandervalkjoel&exclude_repo=hyperos-ios"
-# smooth, hide_points and x_axis are local patches to Joel's fork, not upstream
-# features. Requesting them here means this check fails loudly if a future
-# upstream sync drops the patches.
-GRAPH_URL="https://readme-activity-graph-three.vercel.app/graph?username=vandervalkjoel&months=6&area=true&smooth=7&hide_points=true&x_axis=month"
+# smooth, hide_points, x_axis and daily are local patches to Joel's fork, not
+# upstream features. Requesting them here means this check fails loudly if a
+# future upstream sync drops the patches.
+GRAPH_URL="https://readme-activity-graph-three.vercel.app/graph?username=vandervalkjoel&months=6&area=true&smooth=7&hide_points=true&x_axis=month&daily=true"
 
 # Fetch a card and assert it is a real SVG carrying no embedded error message.
 # min_number > 0 additionally asserts the largest rendered value clears a floor.
