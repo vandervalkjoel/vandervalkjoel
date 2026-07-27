@@ -4,16 +4,6 @@
 
 ---
 
-### About
-
-- Native iOS, mostly SwiftUI and SwiftData, usually with Supabase behind it
-- Currently deep in Koiné, an app for gathering people together in real life
-- Happy to talk about SwiftUI, Postgres row level security, or wiring Claude Code into a project that actually ships
-- Most of what I build started as a problem I had that week
-- Day to day that means Swift and SwiftUI, C# on the work side, TypeScript, and a lot of Postgres. The language card below only counts repos I own, so the C# does not show up in it
-
-### Stats
-
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="profile/streak-dark.svg">
@@ -38,21 +28,3 @@
     <img alt="Contribution activity over the last 90 days, as a 7 day rolling average" src="https://readme-activity-graph-three.vercel.app/graph?username=vandervalkjoel&theme=github-light&hide_border=true&days=90&area=true&smooth=7&hide_points=true&x_axis=month">
   </picture>
 </p>
-
-### What I'm building
-
-**Koiné** is an iOS app that gathers people in real life. SwiftUI on iOS 17+ with Swift 6 strict
-concurrency, and a Supabase backend using Postgres, PostGIS, and row level security as the
-authorization layer. Currently shipping to TestFlight.
-
-**Stoke** is a gamified meal prep, nutrition, and training app. SwiftUI and SwiftData, the Claude API
-for meal planning, HealthKit for training data, and USDA FoodData Central for macros.
-
-**IronLog** is a workout tracker. SwiftUI and SwiftData with Swift Charts, plus a Live Activity on
-the Lock Screen and Dynamic Island via ActivityKit.
-
-**SpeedReader** is speed reading for PDFs and EPUBs, with ARKit eye tracking and no third party
-dependencies at all.
-
-Most of these live in private repos, so there is nothing here to click. The graph above is the
-evidence.
