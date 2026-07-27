@@ -112,9 +112,10 @@ ERROR_PHRASES='Something went wrong|No GitHub API tokens|Please add an env varia
 # parameters the README actually requests.
 STATS_URL="https://readme-stats-sand-zeta.vercel.app/api?username=vandervalkjoel&number_format=long"
 LANGS_URL="https://readme-stats-sand-zeta.vercel.app/api/top-langs?username=vandervalkjoel&exclude_repo=hyperos-ios"
-# smooth=7 is a local patch to Joel's fork, not an upstream feature. Requesting
-# it here means this check fails loudly if a future upstream sync drops it.
-GRAPH_URL="https://readme-activity-graph-three.vercel.app/graph?username=vandervalkjoel&days=90&area=true&smooth=7"
+# smooth, hide_points and x_axis are local patches to Joel's fork, not upstream
+# features. Requesting them here means this check fails loudly if a future
+# upstream sync drops the patches.
+GRAPH_URL="https://readme-activity-graph-three.vercel.app/graph?username=vandervalkjoel&days=90&area=true&smooth=7&hide_points=true&x_axis=month"
 
 # Fetch a card and assert it is a real SVG carrying no embedded error message.
 # min_number > 0 additionally asserts the largest rendered value clears a floor.
