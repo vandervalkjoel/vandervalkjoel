@@ -24,16 +24,23 @@ jobs:
       # Two themes so the README can serve each via <picture> and match the
       # viewer's colour scheme. exclude_days stops weekends from breaking a
       # streak; it does not change the contribution total.
+      #
+      # Colours are set explicitly rather than using the built-in themes, whose
+      # orange-on-#151515 clashed with the other two cards. These match the
+      # github_dark and default palettes used by the languages card and the
+      # activity graph, so the three read as one set.
       - name: Generate dark card
         uses: DenverCoder1/github-readme-streak-stats@v1.7.0
         with:
-          options: user=vandervalkjoel&exclude_days=Sun,Sat&hide_border=true&theme=dark
+          options: >-
+            user=vandervalkjoel&exclude_days=Sun,Sat&hide_border=true&background=0D1117&border=0D1117&stroke=30363D&ring=1F6FEB&fire=58A6FF&currStreakNum=C3D1D9&sideNums=C3D1D9&currStreakLabel=58A6FF&sideLabels=C3D1D9&dates=8B949E&excludeDaysLabel=8B949E
           path: profile/streak-dark.svg
 
       - name: Generate light card
         uses: DenverCoder1/github-readme-streak-stats@v1.7.0
         with:
-          options: user=vandervalkjoel&exclude_days=Sun,Sat&hide_border=true&theme=default
+          options: >-
+            user=vandervalkjoel&exclude_days=Sun,Sat&hide_border=true&background=FFFEFE&border=FFFEFE&stroke=E4E2E2&ring=2F80ED&fire=2F80ED&currStreakNum=434D58&sideNums=434D58&currStreakLabel=2F80ED&sideLabels=434D58&dates=768390&excludeDaysLabel=768390
           path: profile/streak-light.svg
 
       # Fail before committing. A card that reads zero is still valid SVG, so
