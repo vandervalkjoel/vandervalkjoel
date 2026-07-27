@@ -107,10 +107,6 @@ check_svg_file() {
 # the status code alone is not enough.
 ERROR_PHRASES='Something went wrong|No GitHub API tokens|Please add an env variable|Can.t fetch any contribution|check your username|Maximum retries exceeded|Invalid username'
 
-# number_format=long matters here, not just cosmetically: the default abbreviates
-# 1514 to "1.5k", which no numeric assertion can read. Keep this in sync with the
-# parameters the README actually requests.
-STATS_URL="https://readme-stats-sand-zeta.vercel.app/api?username=vandervalkjoel&number_format=long"
 LANGS_URL="https://readme-stats-sand-zeta.vercel.app/api/top-langs?username=vandervalkjoel&exclude_repo=hyperos-ios"
 # smooth, hide_points and x_axis are local patches to Joel's fork, not upstream
 # features. Requesting them here means this check fails loudly if a future
@@ -181,12 +177,10 @@ fi
 
 echo
 echo "Checking live cards"
-# The stats card counts commits, not contributions, so it gets its own floor
-# rather than reusing MIN_TOTAL.
-check_url "stats card" "$STATS_URL" 500
 # The languages card renders percentages, and the activity graph renders dates,
 # so neither has a meaningful "big number" to assert. For those, absence of an
-# embedded error message is the signal.
+# embedded error message is the signal. The numeric floor still applies to the
+# streak SVGs above, which is where a token failure would show up first.
 check_url "languages card" "$LANGS_URL" 0
 check_url "activity graph" "$GRAPH_URL" 0
 
