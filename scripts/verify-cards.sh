@@ -105,7 +105,7 @@ check_svg_file() {
 # Phrases these services draw *inside* a 200-response SVG when they are broken.
 # Both observed live on 2026-07-26 while setting this up, which is why checking
 # the status code alone is not enough.
-ERROR_PHRASES='Something went wrong|No GitHub API tokens|Please add an env variable|Can.t fetch any contribution|check your username|Maximum retries exceeded|Invalid username'
+ERROR_PHRASES='Something went wrong|No GitHub API tokens|Please add an env variable|Can.t fetch any contribution|check your username|Maximum retries exceeded|Invalid username|did not respond'
 
 LANGS_URL="https://readme-stats-sand-zeta.vercel.app/api/top-langs?username=vandervalkjoel&exclude_repo=hyperos-ios"
 # smooth, hide_points, x_axis and daily are local patches to Joel's fork, not
