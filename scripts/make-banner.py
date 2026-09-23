@@ -10,7 +10,7 @@ from pathlib import Path
 W, H = 1000, 220
 NAME = "Joel Vandervalk"
 TAGLINE = "I build iOS apps. Some of them even ship."
-SUBLINE = "Swift · SwiftUI · TypeScript · Supabase"
+SUBLINE = "Swift \u00b7 TypeScript \u00b7 C# \u00b7 Supabase"
 
 # Echoes the avatar's identicon: 5x5, mirrored left to right.
 GRID = [

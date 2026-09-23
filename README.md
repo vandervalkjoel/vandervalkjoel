@@ -9,8 +9,9 @@
 
 <p align="center">
   <img alt="Swift" src="https://img.shields.io/badge/Swift-0E9F87?style=flat-square&logo=swift&logoColor=white">
-  <img alt="SwiftUI" src="https://img.shields.io/badge/SwiftUI-0E9F87?style=flat-square&logo=swift&logoColor=white">
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-0E9F87?style=flat-square&logo=typescript&logoColor=white">
+  <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-0E9F87?style=flat-square&logo=javascript&logoColor=white">
+  <img alt="C#" src="https://img.shields.io/badge/C%23-0E9F87?style=flat-square&logo=dotnet&logoColor=white">
   <img alt="React" src="https://img.shields.io/badge/React-0E9F87?style=flat-square&logo=react&logoColor=white">
   <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-0E9F87?style=flat-square&logo=kotlin&logoColor=white">
   <img alt="Supabase" src="https://img.shields.io/badge/Supabase-0E9F87?style=flat-square&logo=supabase&logoColor=white">
